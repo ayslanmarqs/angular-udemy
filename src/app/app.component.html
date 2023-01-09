@@ -1,0 +1,39 @@
+<h1>Angular</h1>
+
+<zippy title="Courses Component">
+    <div *ngIf="coursesCount > 0; then coursesList else noCourses"></div>
+        <ng-template #coursesList>
+            <courses></courses>
+        </ng-template>
+        <ng-template #noCourses>
+            No courses yet.
+        </ng-template>
+</zippy>
+
+<zippy title="Shipping Details">
+    Shipping Details Content
+</zippy>
+
+<zippy title="Favorite Component">
+    <favorite [is-favorite]="post.isFavorite" (favorite-changed)="onFavoriteChanged($event)"></favorite>
+</zippy>
+
+<zippy title="Pipeline Component">
+    <title-case-edit></title-case-edit>
+</zippy>
+
+<zippy title="Like Component">
+    <like [likesCount]="tweet.likesCount" [isActive]="tweet.isLiked"></like>
+</zippy>
+
+<zippy title="Custom pipe">
+    <div>
+        {{ customPipeText | summary:20 }}
+    </div>
+</zippy>
+<!-- <zippy title="Async Message Component">
+    <div>
+        <p>Message: {{message$ | async }}</p>
+        <button type="button" (click)="resend()">Resend</button>
+    </div>
+</zippy> -->

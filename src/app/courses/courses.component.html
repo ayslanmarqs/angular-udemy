@@ -1,0 +1,22 @@
+<h2>{{title}}</h2>
+
+<div (click)="onDivClicked()">
+    <button class="btn btn-primary" (click)="onSaveEmail()">Save</button>    
+</div>
+
+<!--a way of making a binding from the template to the component, verbose and not ideal.-->
+<!--input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()" / -->
+
+<input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
+
+<div>
+    <ul>
+        <li *ngFor="let course of courses">
+            {{ course.title | uppercase | lowercase }} <br/>
+            {{ course.students | number }} <br/>
+            {{ course.rating | number: '1.2-3'}} <br/>
+            {{ course.price | currency: 'AUD':true:'3.2-2' }} <br/>
+            {{ course.releaseDate | date:'longDate' }} <br/>
+        </li>
+    </ul>
+</div>
