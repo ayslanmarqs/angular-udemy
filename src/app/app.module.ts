@@ -12,6 +12,8 @@ import { TitleCaseConverterPipe } from './title-case-converter.pipe';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 import { LikeComponent } from './like/like.component';
 import { ZippyComponent } from './zippy/zippy.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { CourseAssignmentComponent } from './course-assignment/course-assignment.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ZippyComponent } from './zippy/zippy.component';
     TitleCaseConverterPipe,
     BootstrapPanelComponent,
     LikeComponent,
-    ZippyComponent
+    ZippyComponent,
+    ContactFormComponent,
+    CourseAssignmentComponent
   ],
   imports: [
     BrowserModule,

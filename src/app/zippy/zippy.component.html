@@ -4,10 +4,10 @@
     (click)="toggleExpand();"
     >
         {{ title }}
-        <span class="glyphicon"
+        <span class="bi"
         [ngClass]="{
-            'glyphicon-chevron-up': isExpanded,
-            'glyphicon-chevron-down': !isExpanded
+            'bi-chevron-compact-up': isExpanded,
+            'bi-chevron-compact-down': !isExpanded
         }"
         ></span>
     </div>
