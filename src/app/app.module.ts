@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -14,6 +14,10 @@ import { LikeComponent } from './like/like.component';
 import { ZippyComponent } from './zippy/zippy.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { CourseAssignmentComponent } from './course-assignment/course-assignment.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
+import { FormArrayComponent } from './form-array/form-array.component';
+import { FormBuilderDemoComponent } from './form-builder-demo/form-builder-demo.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -27,11 +31,16 @@ import { CourseAssignmentComponent } from './course-assignment/course-assignment
     LikeComponent,
     ZippyComponent,
     ContactFormComponent,
-    CourseAssignmentComponent
+    CourseAssignmentComponent,
+    SignupFormComponent,
+    FormArrayComponent,
+    FormBuilderDemoComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     CoursesService  
