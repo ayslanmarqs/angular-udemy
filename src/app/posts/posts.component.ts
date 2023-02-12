@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { NotFoundError } from 'rxjs';
 import { AppError } from '../common/app-error';
 import { BadRequestError } from '../common/bad-request-error';
-import { Post } from '../interfaces/post';
 import { PostService } from '../services/post.service';
 
 @Component({
@@ -13,21 +12,19 @@ import { PostService } from '../services/post.service';
 })
 export class PostsComponent implements OnInit {
     posts: any[];
-    constructor(private postService: PostService) {
-    }
+
+    constructor(private postService: PostService) { }
 
     ngOnInit(): void {
-        this.postService.getPosts()
+        this.postService.getAll()
             .subscribe(
-                response => {
-                    this.posts = response;
-                });
+                (response: any[]) => this.posts = response)
     }
     
     createPost(input: HTMLInputElement) {
         let post: any = { title: input.value };
         input.value = '';
-        this.postService.createPost(post)
+        this.postService.create(post)
             .subscribe(
                 response => {
                     post.id = response;
@@ -42,7 +39,7 @@ export class PostsComponent implements OnInit {
     }
 
     updatePost(post: any) {
-        this.postService.updatePost(post)
+        this.postService.update(post)
             .subscribe(
                 response => {
                     console.log(response);
@@ -50,9 +47,9 @@ export class PostsComponent implements OnInit {
     }
 
     deletePost(post: any) {
-        this.postService.deletePost(post.id)
+        this.postService.delete(post.id)
         .subscribe(
-            response => {
+            () => {
                 let index = this.posts.indexOf(post);
                 this.posts.splice(index, 1);
             }, 

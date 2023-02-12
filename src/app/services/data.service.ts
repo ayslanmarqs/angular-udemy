@@ -1,22 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, throwError } from 'rxjs';
+import { catchError, map, throwError } from 'rxjs';
 import { AppError } from '../common/app-error';
 import { BadRequestError } from '../common/bad-request-error';
 import { NotFoundError } from '../common/not-found-error';
-import { Post } from '../interfaces/post';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-    private url;
-
-    constructor(private http: HttpClient) { }
+    constructor(private url: string, private http: HttpClient) { }
 
     getAll() {
-        return this.http.get<Post[]>(this.url);
+        return this.http.get(this.url)
+            .pipe(
+                catchError(this.handleError)
+            );
     }
 
     create(resource) {
