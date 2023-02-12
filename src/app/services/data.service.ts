@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, firstValueFrom, map, Observable, throwError } from 'rxjs';
+import { catchError, throwError } from 'rxjs';
 import { AppError } from '../common/app-error';
 import { BadRequestError } from '../common/bad-request-error';
 import { NotFoundError } from '../common/not-found-error';
